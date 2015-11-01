@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker.proxies;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class ClientProxy extends CommonProxy {
+   
+   @Override
+   public void loadStatistics() {
+      super.loadStatistics();
+      // TODO Auto-generated method stub
+      
+   }
+
+}

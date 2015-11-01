@@ -1,0 +1,41 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker.proxies;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.tonoplace.mcmods.timetracker.ModInfo;
+import org.tonoplace.mcmods.timetracker.TimeTrackerMod;
+import org.tonoplace.mcmods.timetracker.data.ConfigHandler;
+import org.tonoplace.mcmods.timetracker.data.Statistics;
+
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class ServerProxy extends CommonProxy {
+
+   public static Statistics stats;
+   
+   @Override
+   public void loadStatistics(FMLPreInitializationEvent event) {
+      super.loadStatistics(event);
+      File f = event.getSuggestedConfigurationFile();
+      File dir = f.getParentFile();
+      File modDir = new File(dir,ModInfo.MODID+"_data");
+      try {
+         TimeTrackerMod.logger.info("Server needs to loadStatistics(), from directory: " + modDir.getCanonicalPath());
+         stats = new Statistics();
+         stats.load(modDir);
+      } catch (Exception e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+         TimeTrackerMod.logger.error("Error getting statistics data...",e);
+      }
+   }
+
+}

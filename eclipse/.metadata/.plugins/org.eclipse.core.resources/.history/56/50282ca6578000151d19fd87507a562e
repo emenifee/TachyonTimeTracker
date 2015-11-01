@@ -1,0 +1,48 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker;
+
+
+import java.util.Date;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.tonoplace.mcmods.timetracker.proxies.ServerProxy;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class Timer {
+   int count = 0;
+   public static final Logger logger = LogManager.getFormatterLogger(ModInfo.MODID);
+   private Date lastSaved = null;
+@SubscribeEvent
+public void onServerTick(ServerTickEvent ste)
+{
+
+   if(ste.phase==TickEvent.Phase.START) {
+      count = count % 500;
+      if(count==0) {
+         if(lastSaved==null)
+            lastSaved = new Date();
+         logger.info("ServerTickEvent...(%500)");
+         Date now = new Date();
+         if(now.getTime() - lastSaved.getTime() >= 5 * 60 * 1000) {
+            logger.info("Server auto-saving stats...);");
+            TimeTrackerMod.autoSave();
+            lastSaved = now;
+         }
+         
+      }   
+      count++;
+   }   
+   //System.out.println("Detected Server Stoppping");
+}
+
+}

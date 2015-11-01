@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class Timer {
+
+}

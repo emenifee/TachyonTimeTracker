@@ -1,0 +1,43 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker.data;
+
+import java.io.File;
+
+import net.minecraftforge.common.config.Configuration;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+
+public class ConfigHandler {
+   
+   public static TimeStatistic serverStart = new TimeStatistic(StatisticCategory.Global,"","ServerStarted");
+   public static TimeStatistic serverUptime = new TimeStatistic(StatisticCategory.Global,"","ServerUptime");
+   
+   public static void init(File file) {
+      
+      Configuration config = new Configuration(file);
+      config.load();
+      
+      serverStart.load(config);
+      serverUptime.load(config);
+      serverUptime.unpause();
+      
+      config.save();
+   }
+   
+   public static void save(File file) {
+      
+      Configuration config = new Configuration(file);
+      config.load();
+      
+      serverStart.save(config);
+      serverUptime.save(config);
+      
+      config.save();
+   }
+
+}

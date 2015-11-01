@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker;
+
+/**
+ * @author BlackTachyon
+ *
+ * Basic constant and static information about the mod.
+ */
+public class ModInfo {
+
+	/**
+	 * The modid value to register with FML.
+	 */
+	public static final String MODID = "tonoplace_timetracker";
+
+}

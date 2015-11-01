@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker;
+
+/**
+ * @author BlackTachyon
+ *
+ * Basic constant and static information about the mod.
+ */
+public class ModInfo {
+
+}

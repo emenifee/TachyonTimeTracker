@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker.network;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public final class NetworkInfo {
+
+}

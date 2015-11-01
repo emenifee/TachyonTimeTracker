@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker.client;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class HUDTickHandler {
+
+}

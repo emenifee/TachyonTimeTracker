@@ -1,0 +1,7 @@
+package org.tonoplace.mcmods.timetracker.network.server;
+
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+
+public class HandleRequestAdd implements IMessageHandler<REQ, REPLY> {
+
+}

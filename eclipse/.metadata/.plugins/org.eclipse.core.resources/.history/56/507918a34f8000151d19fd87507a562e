@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker.proxies;
+
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class CommonProxy {
+
+   /**
+    * @param event 
+    * 
+    */
+   public void loadStatistics(FMLPreInitializationEvent event) {
+      // TODO Auto-generated method stub
+      System.out.println("Common loadStatistics...");
+   }
+
+}

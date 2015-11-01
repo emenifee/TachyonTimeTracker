@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class Timer {
+@SubscribeEvent
+public void onTest(cpw.mods.fml.common.event.FMLServerStoppingEvent sse)
+{
+   System.out.println("Detected Server Stoppping");
+}
+}

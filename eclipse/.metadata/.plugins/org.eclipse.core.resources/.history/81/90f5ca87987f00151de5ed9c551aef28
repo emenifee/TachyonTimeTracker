@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class Timer {
+   int count = 0;
+@SubscribeEvent
+public void onTest(ServerTickEvent ste)
+{
+   if(ste.phase==TickEvent.Phase.START) {
+      count = count % 100;
+      if(count==0)
+         System.out.println("ServerTickEvent...(%100)");
+            
+      count++;
+   }   
+   //System.out.println("Detected Server Stoppping");
+}
+}

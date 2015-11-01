@@ -1,0 +1,159 @@
+package org.tonoplace.mcmods.timetracker;
+
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraft.init.Blocks;
+
+/**
+ * Minecraft mod to support tracking time based statistics.
+ * @author BlackTachyon
+ *
+ */
+@Mod(modid = ModInfo.MODID, name=ModInfo.MOD_NAME, version = TimeTrackerMod.VERSION)
+public class TimeTrackerMod
+{
+	/**
+     * The version of this mod, in MinecraftVersion-ModVersion format.
+     */
+    public static final String VERSION = "1.7.10-0.0.1";
+    
+    /**
+     * Simple network implementation channel this mod uses to communicate
+     * between client and server.
+     */
+    public static final String CHANNEL;
+
+    /**
+     * Simple network for passing messages between client and server.
+     */
+    public static SimpleNetworkWrapper network; 
+    
+    /**
+     * Public available instance of this mod.
+     */
+    @Instance(ModInfo.MODID)
+    public static TimeTrackerMod instance;
+    
+    /**
+     * Pre-initialization section, register block-ids, read config, assign
+     * network channels, etc...
+     * @param event The FMLPreInitializationEvent, marking this method for the pre-init lifecycle of FML. 
+     *    
+     */
+    @EventHandler
+    void preInit(FMLPreInitializationEvent event)
+    {
+    	network = NetworkRegistry.INSTANCE.newSimpleChannel(CHANNEL);
+    }
+    
+    /**
+     * Initialization section, initiate and add any new default stats as needed.
+     * @param event The FMLInitializationEvent, marking this mode for the mod initialization lifecycle of FML.
+     */
+    @EventHandler
+    public void init(FMLInitializationEvent event)
+    {
+    	// internal mod setup comms
+		// some example code
+        System.out.println("DIRT BLOCK >> "+Blocks.dirt.getUnlocalizedName());
+        System.out.println("Anvil >> " + Blocks.anvil.getUnlocalizedName());
+    }
+    
+    /**
+     * Post-initialization section, communicate/cordinate with other mods as needed.
+     * @param event The FMLPostInitializationEvent, marking this method for the post-init lifecycle of FML.
+     */
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event)
+    {
+    	// connect to other mods...
+    }
+
+    ////////////////////////////////////////////////////////////////////////
+    // PRIVATE INTERNAL VARIABLES
+    ////////////////////////////////////////////////////////////////////////
+    
+    /**
+     * Tracks used channel discriminators, see static initialization block.
+     */
+    private static int channelDiscriminator;
+    
+    /**
+     * For client to request the values of current stats, see static initialization block.
+     */
+    private static final int REQUEST_STATS_DISCRIMINATOR;
+    
+    /**
+     * For client to request the list of available stats, see static initialization block.
+     */
+    private static final int REQUEST_AVAILABLE_DISCRIMINATOR;
+    
+    /**
+     * For client to request a specific stat is reset, see static initialization block.
+     */
+    private static final int REQUEST_RESET_DISCRIMINATOR;
+    
+    /**
+     * For client to request a new stat be added, see static initialization block.
+     */
+    private static final int REQUEST_ADD_DISCRIMINATOR;
+    
+    /**
+     * For client to request a stat to be removed, see static initialization block.
+     */
+    private static final int REQUEST_DEL_DISCRIMINATOR;
+    
+    /**
+     * For client to request a stat's the toggle of a stat as current, see static initialization block.
+     */
+    private static final int REQUEST_TOGGLE_DISCRIMINATOR;
+    
+    /**
+     * For server to reply with current stat values, see static initialization block.
+     */
+    private static final int REPLY_STATS_DISCRIMINATOR;
+    
+    /**
+     * For server to reply with available stats, see static initialization block.
+     */
+    private static final int REPLY_AVAILABLE_DISCRIMINATOR;
+    
+    /**
+     * For server to reply to Rest,Add,Del,Toggle with outcome information.
+     */
+    private static final int REPLY_OTHER_DISCRIMINATOR;
+
+    /**
+     * Initializes internal constants.
+     */
+	static {
+		CHANNEL = "TimeTrackerComm";
+	    channelDiscriminator = 0;
+	    REQUEST_STATS_DISCRIMINATOR     = ++channelDiscriminator;
+	    REQUEST_AVAILABLE_DISCRIMINATOR = ++channelDiscriminator;
+	    REQUEST_RESET_DISCRIMINATOR     = ++channelDiscriminator;
+	    REQUEST_ADD_DISCRIMINATOR       = ++channelDiscriminator;
+	    REQUEST_DEL_DISCRIMINATOR       = ++channelDiscriminator;
+	    REQUEST_TOGGLE_DISCRIMINATOR    = ++channelDiscriminator;
+	    REPLY_STATS_DISCRIMINATOR       = ++channelDiscriminator;
+	    REPLY_AVAILABLE_DISCRIMINATOR   = ++channelDiscriminator;
+	    REPLY_OTHER_DISCRIMINATOR	    = ++channelDiscriminator;
+	    // per http://www.minecraftforge.net/forum/index.php/topic,20135.0.html
+	    // maximum PacketID available on channel is 255
+	    if(channelDiscriminator>255)
+	    {
+	    	throw new ExceptionInInitializerError("Number of assigned channel discriminators on '" + CHANNEL + "' exceeds maximum.");
+	    }
+	    else
+	    {
+	    	System.out.println("Using " + channelDiscriminator + " of 255 possible packet discriminators on network channel '" + CHANNEL +"'.");
+	    }
+	}
+     
+}

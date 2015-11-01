@@ -1,0 +1,6 @@
+1446346654098	Rename method 'DeserializeString'
+1446346664053	Rename method 'ConvertToSerializedString'
+1446346673255	Rename method 'GetElapsedTime'
+1446346684106	Rename method 'GetTime'
+1446346724902	Rename method 'GetName'
+1446351782402	Rename method 'saveStatistics'

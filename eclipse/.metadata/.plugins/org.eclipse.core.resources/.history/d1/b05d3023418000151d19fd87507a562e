@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker.proxies;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class CommonProxy {
+
+   /**
+    * 
+    */
+   public void loadStatistics() {
+      // TODO Auto-generated method stub
+      System.out.println("Common loadStatistics...");
+   }
+
+}

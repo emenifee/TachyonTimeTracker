@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker.network.server;
+
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class HandleRequestReset implements IMessageHandler<REQ, REPLY> {
+
+}

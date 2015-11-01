@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package org.tonoplace.mcmods.timetracker.proxies;
+
+/**
+ * @author BlackTachyon
+ *
+ */
+public class ServerProxy extends CommonProxy {
+
+}
