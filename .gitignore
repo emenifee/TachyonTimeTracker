@@ -1,15 +1,1 @@
 /bin/
-/eclipse/banned-ips.json
-/eclipse/banned-players.json
-/eclipse/crash-reports/
-/eclipse/eula.txt
-/eclipse/logs/
-/eclipse/ops.json
-/eclipse/saves/
-/eclipse/world/
-/eclipse/server.properties
-/eclipse/usercache.json
-/eclipse/usernamecache.json
-/eclipse/whitelist.json
-/eclipse/config/tonoplace_timetracker.cfg
-/eclipse/config/tonoplace_timetracker_data/
