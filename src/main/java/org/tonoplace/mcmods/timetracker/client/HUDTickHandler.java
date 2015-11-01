@@ -18,33 +18,33 @@ public class HUDTickHandler {
    private static final Minecraft mc = Minecraft.getMinecraft();
    
    private static void tickEnd() {
-      if(mc.thePlayer != null) {
-         if(   (    mc.currentScreen==null 
-                 || Config.showHUDWhileChatting) 
-             && !mc.gameSettings.hideGUI
-             && !mc.gameSettings.showDebugInfo) {
-            
-            GL11.glPushMatrix();
-            mc.entityRenderer.setupOverlayRendering();
-            GL11.glScaled(Config.HUDScale, Config.HUDScale, 1.0d);
-            
-            String[] testLines = new String[] { "Test line 1", "Test line 2" };
-            int i = 0;
-            for (String s : testLines) {
-               drawStringAtHUDPosition(s, HUDPositions.values()[Config.HUDPosition], mc.fontRenderer, Config.HUDOffsetX, Config.HUDOffsetY, Config.HUDScale, 0xeeeeee, true, i);
-               i++;
-            }
-            
-            GL11.glPopMatrix();
-         }
-      }
+//      if(mc.thePlayer != null) {
+//         if(   (    mc.currentScreen==null 
+//                 || Config.showHUDWhileChatting) 
+//             && !mc.gameSettings.hideGUI
+//             && !mc.gameSettings.showDebugInfo) {
+//            
+//            GL11.glPushMatrix();
+//            mc.entityRenderer.setupOverlayRendering();
+//            GL11.glScaled(Config.HUDScale, Config.HUDScale, 1.0d);
+//            
+//            String[] testLines = new String[] { "Test line 1", "Test line 2" };
+//            int i = 0;
+//            for (String s : testLines) {
+//               drawStringAtHUDPosition(s, HUDPositions.values()[Config.HUDPosition], mc.fontRenderer, Config.HUDOffsetX, Config.HUDOffsetY, Config.HUDScale, 0xeeeeee, true, i);
+//               i++;
+//            }
+//            
+//            GL11.glPopMatrix();
+//         }
+//      }
    }
    
    @SubscribeEvent
    public void onRenderTick(RenderTickEvent evt) {
-      if(evt.phase == Phase.END && Config.enableTimeHUD) {
-         tickEnd();
-      }
+//      if(evt.phase == Phase.END && Config.enableTimeHUD) {
+//         tickEnd();
+//      }
    }
 
 }
