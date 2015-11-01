@@ -1,5 +1,0 @@
-package org.tonoplace.mcmods.timetracker.network;
-
-public class RequestToggleCurrentStatistic {
-
-}
