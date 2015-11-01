@@ -1,3 +1,12 @@
 /bin/
 /eclipse/logs/
 /eclipse/eula.txt
+/eclipse/world/
+/eclipse/banned-ips.json
+/eclipse/banned-players.json
+/eclipse/ops.json
+/eclipse/options.txt
+/eclipse/server.properties
+/eclipse/usercache.json
+/eclipse/usernamecache.json
+/eclipse/whitelist.json
